@@ -17,48 +17,49 @@ const user:Readonly<User>={
 user.name="swde"
 console.log(user.name)
 ```
-//Record
+Record
 ```bash
-// type User={
-//     id:string,
-//     username:string
-// }
-//this not the cleaner way
-// type Users={
-//     [key:string]:User
-// }
-//type Users=Record<number,string>
-//2nd one is more cleaner than 1st 
-// const users={
-//     "r@123":{
-//         id:1,
-//         username:"hhh"
-//     },
-//     "ras1dr@":{
-//         id:2,
-//         username:"rrr"
-//     }
-// }
+ type User={
+     id:string,
+     username:string
+ }
+this not the cleaner way
+
+type Users={
+ [key:string]:User
+ }
+
+ type Users=Record<number,string>
+ 2nd one is more cleaner than 1st 
+const users={
+    "r@123":{
+        id:1,
+       username:"hhh"
+   },
+   "ras1dr@":{
+        id:2,
+        username:"rrr"
+  }
+ }
 ```
-//Map: easier syntax to access key value pairs
+Map: easier syntax to access key value pairs
 ```bash
-// const users=new Map()
+const users=new Map()
+users.set("r@123",{id:1,username:"hhh" })
+ users.set("ras1dr@",{id:2,username:"rrr"})
 
-// users.set("r@123",{id:1,username:"hhh" })
-// users.set("ras1dr@",{id:2,username:"rrr"})
-
-// const user=users.get("r@123")
-// console.log(user)
+ const user=users.get("r@123")
+ console.log(user)
 ```
 
-//Exclude-> it lets u doing exclude the specific members from the value
+Exclude-> it lets u doing exclude the specific members from the value
 ```bash
-// type EventType = 'click' | 'scroll' | 'mousemove';
-// type ExcludeEvent = Exclude<EventType, 'scroll'>; // 'click' | 'mousemove'
+ type EventType = 'click' | 'scroll' | 'mousemove';
+ type ExcludeEvent = Exclude<EventType, 'scroll'>; // 'click' | 'mousemove'
 
-// const handleEvent = (event: ExcludeEvent) => {
-//   console.log(`Handling event: ${event}`);
-// };
+ const handleEvent = (event: ExcludeEvent) => {
+   console.log(`Handling event: ${event}`);
+ };
 
-// handleEvent('click'); // OK
+ handleEvent('click'); // OK
 ```
